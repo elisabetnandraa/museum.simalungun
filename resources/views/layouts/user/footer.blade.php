@@ -3,7 +3,7 @@
       <div class="flex flex-col md:flex-row md:justify-between items-start">
         <!-- Logo Column -->
         <div class="mb-6 md:mb-0 md:w-1/4">
-          <img src="assets/img/logo-museum.png" alt="Museum Simalungun Logo" class="w-40 h-40">
+          <img src="{{ asset('assets/img/logo-museum.png') }}" alt="Museum Simalungun Logo" class="w-40 h-40">
         </div>
   
         <!-- Contact Information Column -->

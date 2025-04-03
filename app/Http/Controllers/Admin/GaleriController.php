@@ -60,4 +60,10 @@ class GaleriController extends Controller
         $galeri->delete();
         return back()->with('sukses', 'Galeri berhasil dihapus');
     }
+
+    public function show()
+    {
+        $galeris = Galeri::all();
+        return view('tamu.galeri.show', compact('galeris'));
+    }
 }

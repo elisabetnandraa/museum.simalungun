@@ -17,7 +17,7 @@ class BeritaSeeder extends Seeder
             [
                 'judul' => 'Berkunjung ke Museum Simalungun Ganjar Pranowo di berikan kain ulos',
                 'deskripsi' => 'Ganjar juga menyampaikan terima kasih atas sambutan yang luar biasa masyarakat. Mantan gubernur Jawa Tengah itu.',
-                'gambar' => 'assets/img/image1.png',
+                'gambar' => 'assets/img/ganjar.jpg',
                 'link' => 'https://indoposco.id/politik/2023/11/11/berkunjung-ke-museum-simalungun-sumut-ganjar-pranowo-diberikan-kain-ulos-oleh-masyarakat-adat/2',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -25,7 +25,7 @@ class BeritaSeeder extends Seeder
             [
                 'judul' => 'Belajar Budaya dan Sejarah, Murid SD dan Guru Kunjungi Museum Simalungun',
                 'deskripsi' => 'UPTD SD Negeri 1222399 Jalan Mawar Kelurahan Simarito Kecamatan Siantar Barat mengunjungi musem Simalungun.',
-                'gambar' => 'assets/img/image2.png',
+                'gambar' => 'assets/img/sd.png',
                 'link' => 'https://indoposco.id/politik/2023/11/11/berkunjung-ke-museum-simalungun-sumut-ganjar-pranowo-diberikan-kain-ulos-oleh-masyarakat-adat/2',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -33,7 +33,7 @@ class BeritaSeeder extends Seeder
             [
                 'judul' => 'Kapoldasu Kunjungi Museum Simalungun',
                 'deskripsi' => 'Kapoldasu Irjen (Pol) Rycko Amelza Dahniel saat mengunjungi Museum Simalungun yang berada di Jalan Sudirman, Kecamatan Siantar Barat, Kota Siantar, Selasa.',
-                'gambar' => 'assets/img/image3.png',
+                'gambar' => 'assets/img/polda.jpg',
                 'link' => 'https://indoposco.id/politik/2023/11/11/berkunjung-ke-museum-simalungun-sumut-ganjar-pranowo-diberikan-kain-ulos-oleh-masyarakat-adat/2',
                 'created_at' => now(),
                 'updated_at' => now(),

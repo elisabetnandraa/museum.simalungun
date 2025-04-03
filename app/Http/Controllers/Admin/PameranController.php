@@ -60,4 +60,10 @@ class PameranController extends Controller
         $pameran->delete();
         return back()->with('sukses', 'Pameran berhasil dihapus');
     }
+
+    public function show()
+    {
+        $pamerans = Pameran::all();
+        return view('tamu.pameran.show', compact('pamerans'));
+    }
 }

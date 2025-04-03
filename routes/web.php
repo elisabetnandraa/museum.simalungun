@@ -5,10 +5,14 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TamuController;
 use App\Http\Controllers\Admin\BeritaController;
 use App\Http\Controllers\Admin\ProfilController;
+use App\Http\Controllers\Admin\SubProfilController;
 use App\Http\Controllers\Admin\JadwalController;
 use App\Http\Controllers\Admin\GaleriController;
 use App\Http\Controllers\Admin\KoleksiController;
 use App\Http\Controllers\Admin\PameranController;
+use App\Http\Controllers\Admin\BukuTamuController;
+use App\Http\Controllers\Admin\UlasanController;
+use App\Http\Controllers\LandingPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +48,12 @@ Route::middleware(['auth'])->group(function () {
         Route::put('admin/profil/{profil}', [ProfilController::class, 'update'])->name('admin.profil.update');
         Route::delete('admin/profil/{profil}', [ProfilController::class, 'destroy'])->name('admin.profil.destroy');
 
+        // CMS untuk SubProfil
+        Route::get('admin/subprofil', [SubProfilController::class, 'index'])->name('admin.subprofil.index');
+        Route::post('admin/subprofil', [SubProfilController::class, 'store'])->name('admin.subprofil.store');
+        Route::put('admin/subprofil/{subprofil}', [SubProfilController::class, 'update'])->name('admin.subprofil.update');
+        Route::delete('admin/subprofil/{subprofil}', [SubProfilController::class, 'destroy'])->name('admin.subprofil.destroy');
+
         // CMS untuk Jadwal
         Route::get('admin/jadwal', [JadwalController::class, 'index'])->name('admin.jadwal.index');
         Route::post('admin/jadwal', [JadwalController::class, 'store'])->name('admin.jadwal.store');
@@ -68,10 +78,28 @@ Route::middleware(['auth'])->group(function () {
         Route::put('admin/pameran/{pameran}', [PameranController::class, 'update'])->name('admin.pameran.update');
         Route::delete('admin/pameran/{pameran}', [PameranController::class, 'destroy'])->name('admin.pameran.destroy');
 
+        // CMS untuk Buku Tamu
+        Route::get('admin/bukutamu', [BukuTamuController::class, 'index'])->name('admin.bukutamu.index');
+        Route::delete('admin/bukutamu/{bukuTamu}', [BukuTamuController::class, 'destroy'])->name('admin.bukutamu.destroy');
+
+        // CMS untuk Ulasan
+        Route::get('admin/ulasan', [UlasanController::class, 'index'])->name('admin.ulasan.index');
+        Route::delete('admin/ulasan/{ulasan}', [UlasanController::class, 'destroy'])->name('admin.ulasan.destroy');
     });
 
     // Dashboard untuk Tamu
     Route::middleware(['tamu'])->group(function () {
-        Route::get('/tamu', [TamuController::class, 'index'])->name('tamu.dashboard');
+        Route::get('/tamu', [LandingPageController::class, 'index'])->name('tamu.dashboard');
+
+        // CMS UNTUK LIHAT GALERI
+        Route::get('/tamu/galeri', [GaleriController::class, 'show'])->name('tamu.galeri.show');
+
+        // CMS UNTUK LIHAT KOLEKSI
+        Route::get('/tamu/koleksi', [KoleksiController::class, 'show'])->name('tamu.koleksi.show');
+        Route::get('/koleksi/{id}', [KoleksiController::class, 'detail'])->name('detailkoleksi');
+
+        // CMS UNTUK LIHAT PAMERAN
+        Route::get('/tamu/pameran', [PameranController::class, 'show'])->name('tamu.pameran.show');
+
     });
 });

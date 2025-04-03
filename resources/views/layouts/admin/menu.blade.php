@@ -29,6 +29,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('admin.subprofil.index')}}" class="nav-link text-dark {{(Request::routeIs('admin.subprofil.index') ? 'active':'')}}">
+                        <i class="fas fa-scroll nav-icon"></i>
+                        <p>SubProfil</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('admin.jadwal.index')}}" class="nav-link text-dark {{(Request::routeIs('admin.jadwal.index') ? 'active':'')}}">
                         <i class="fas fa-calendar-alt nav-icon"></i> 
                         <p>Jadwal</p>
@@ -59,19 +65,40 @@
         </li>
         
         <li class="nav-item">
-            <a href="#" class="nav-link text-white">
+            <a href="{{route('admin.bukutamu.index')}}" class="nav-link text-white {{(Request::routeIs('admin.bukutamu.index') ? 'active':'')}}">
                 <i class="nav-icon fas fa-book-open"></i> 
                 <p>Buku Tamu</p>
             </a>
         </li>
-                                                           
         <li class="nav-item">
-            <a href="#" class="nav-link text-white">
-                <i class="nav-icon fas fa-ticket-alt"></i> 
-                <p>Tiket</p>
+            <a href="{{route('admin.ulasan.index')}}" class="nav-link text-white {{(Request::routeIs('admin.ulasan.index') ? 'active':'')}}">
+                <i class="nav-icon fas fa-star"></i>
+                <p>Ulasan</p>
             </a>
         </li>
-                                                          
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link text-white">
+                <i class="nav-icon fas fa-ticket-alt"></i> 
+                <p>
+                    Kelola Tiket
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview" style="background-color: white; padding: 10px; border-radius: 5px;">
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-dark">
+                        <i class="fas fa-info nav-icon"></i>
+                        <p>Informasi Tiket</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-dark">
+                        <i class="nav-icon fas fa-ticket-alt"></i> 
+                        <p>Tiket</p>
+                    </a>
+                </li>
+            </ul>
+        </li>                                                                                       
         <li class="nav-item">
             <form id="logout-form" action="{{ route('logout') }}" method="POST" hidden>
                 @csrf

@@ -13,7 +13,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                Apakah Anda yakin ingin menghapus berita <strong>{{ $item->deskripsi }}</strong>?
+                Apakah Anda yakin ingin menghapus profil <strong>{{ $item->deskripsi }}</strong>?
             </div>
             <div class="modal-footer">
                 <form action="{{ route('admin.profil.destroy', $item->id) }}" method="POST">

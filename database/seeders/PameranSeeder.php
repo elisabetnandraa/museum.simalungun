@@ -20,6 +20,18 @@ class PameranSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'judul' => 'Pameran Sumpah Pemuda',
+                'gambar' => 'assets/img/pameran1.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'judul' => 'Pameran Sumpah Pemuda',
+                'gambar' => 'assets/img/pameran1.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ];
 
         DB::table('pamerans')->insert($data);

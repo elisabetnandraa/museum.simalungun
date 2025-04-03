@@ -62,4 +62,16 @@ class KoleksiController extends Controller
         $koleksi->delete();
         return back()->with('sukses', 'Koleksi berhasil dihapus');
     }
+
+    public function show()
+    {
+        $koleksis = Koleksi::all();
+        return view('tamu.koleksi.show', compact('koleksis'));
+    }
+    public function detail($id)
+    {
+        $koleksi = Koleksi::findOrFail($id);
+        return view('tamu.koleksi.detail', compact('koleksi'));
+    }
+
 }

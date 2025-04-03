@@ -32,7 +32,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->judul }}</td>
-                                <td>{{ Str::limit($item->deskripsi, 500) }}</td>
+                                <td>{{ Str::limit($item->deskripsi, 1000) }}</td>
                                 <td>
                                     @if($item->gambar)
                                         <img src="{{ asset($item->gambar) }}" width="100">
@@ -70,21 +70,7 @@
           "responsive": true,
           "lengthChange": true,
           "autoWidth": false,
-          "buttons": [
-              { extend: 'excel', exportOptions: { columns: ':not(:last-child)' } },
-              { extend: 'pdf', exportOptions: { columns: ':not(:last-child)' } },
-              { extend: 'print', exportOptions: { columns: ':not(:last-child)' } }
-          ]
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-      $('#example2').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": false,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false,
-          "responsive": true,
-      });
   });
 </script>
 @endsection

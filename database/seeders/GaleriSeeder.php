@@ -16,19 +16,19 @@ class GaleriSeeder extends Seeder
         $data = [
             [  
                 'keterangan' => 'Kunjungan SD Sultan Agung Pematangsiantar',
-                'gambar' => 'assets/img/galeri1.png',
+                'gambar' => 'assets/img/galeri.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'keterangan' => 'Penampilan sanggar tari museum di parapat',
-                'gambar' => 'assets/img/galeri2.png',
+                'gambar' => 'assets/img/galeri1.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'keterangan' => 'Pembuatan Ulos bersama bapak Ganjar',
-                'gambar' => 'assets/img/galeri3.png',
+                'gambar' => 'assets/img/galeri2.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

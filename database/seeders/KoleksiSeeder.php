@@ -28,6 +28,14 @@ class KoleksiSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'judul' => 'Piring hias',
+                'deskripsi' => 'Piring hias terbuat dari kuningan dan dihias dengan ukiran yang dibuat menggunakan uang logam, sehingga menciptakan pola atau lukisan yang indah pada permukaan kuningan tersebut. Piring hias ini umumnya digantung di dinding sebagai pajangan, memberikan sentuhan estetika dan keindahan pada ruangan. Setiap ukiran yang ada pada piring hias ini mencerminkan keterampilan seni yang tinggi dan menjadi elemen dekoratif yang khas.',
+                'gambar' => 'assets/img/koleksi3.jpg',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
         ];
 
         DB::table('koleksis')->insert($data);
