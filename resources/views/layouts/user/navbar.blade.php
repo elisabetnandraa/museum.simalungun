@@ -26,15 +26,7 @@
                     Logout
                 </a>
                 
-                <!-- Desktop Search box -->
-                <div class="relative">
-                    <input type="text" id="search-navbar" class="block w-full p-2 pl-3 pr-10 text-sm text-gray-700 border border-gray-300 rounded-lg bg-white focus:outline-none" placeholder="Search">
-                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                        <svg class="w-5 h-5 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                        </svg>
-                    </div>
-                </div>
+            
             </div>
             
             <!-- Mobile menu button -->
