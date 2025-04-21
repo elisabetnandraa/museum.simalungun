@@ -15,23 +15,37 @@ class BukuTamuSeeder extends Seeder
     {
         $data = [
             [  
-                'nama' => 'Budi',
+                'nama' => 'elisabet',
                 'alamat' => 'Jl. Simalungun',
                 'tanggal_kunjungan' => '2025-04-01', 
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nama' => 'Siti',
+                'nama' => 'vebie',
                 'alamat' => 'Jl. Simalungun',
                 'tanggal_kunjungan' => '2025-04-05', 
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nama' => 'Andi',
+                'nama' => 'putri',
                 'alamat' => 'Jl. Simalungun',
                 'tanggal_kunjungan' => '2025-04-10', 
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nama' => 'dimas',
+                'alamat' => 'Jl. Simalungun',
+                'tanggal_kunjungan' => '2024-04-10', 
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nama' => 'andi',
+                'alamat' => 'Jl. Simalungun',
+                'tanggal_kunjungan' => '2024-02-10', 
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

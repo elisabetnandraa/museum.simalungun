@@ -22,7 +22,7 @@
         window.snap.pay('{{ $snapToken }}', {
             onSuccess: function (result) {
                 alert("Pembayaran berhasil!");
-                window.location.href = "/";
+                window.location.href = "{{ route('tamu.informasitiket.show') }}";
             },
             onPending: function (result) {
                 alert("Menunggu pembayaran Anda!");
