@@ -35,20 +35,7 @@ class BukuTamuSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            [
-                'nama' => 'Tina',
-                'alamat' => 'Jl. Simalungun',
-                'tanggal_kunjungan' => '2025-04-15', 
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nama' => 'Rudi',
-                'alamat' => 'Jl. Simalungun',
-                'tanggal_kunjungan' => '2025-04-20', 
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
+            
         ];
 
         DB::table('buku_tamus')->insert($data);

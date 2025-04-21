@@ -13,7 +13,6 @@
   <body>
     <div class="container-fluid" style="background-image: url('assets/img/bgmuseum.png'); background-size: cover; background-position: center; height: 100vh; display: flex; justify-content: center; align-items: center;">
       <div class="card p-5 rounded-right shadow login-card">
-        <!-- Logo inside card above the login title -->
         <h1 class="text-center mb-4" style="font-size: 24px;">Hai, Selamat Datang</h1>
         <div class="text-center mb-4">
             <img src="assets/img/logomuseum.png" alt="Logo" style="max-width: 190px; margin-bottom: 20px;">
@@ -32,7 +31,10 @@
           </div>
           <button type="submit" class="btn btn-Danger w-100">Masuk</button>
         </form>
-        <!-- Link to registration page if user doesn't have an account -->
+        <div class="text-center mt-3">
+          <p>Apakah Anda lupa password? <a href="{{ route('tamu.forgot-password') }}" class="text-danger">Reset di sini</a></p>
+        </div>
+        
         <div class="text-center mt-3">
           <p>Belum punya akun? <a href="{{ route('register') }}" class="text-Light">Daftar Sekarang</a></p>
         </div>

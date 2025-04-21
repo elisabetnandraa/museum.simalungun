@@ -87,7 +87,7 @@
                         Museum
                     </h4>
                     <p class="text-white fw-bold" style="margin-top:-10px;">
-                        Kabupaten Simalungun
+                        Kota Pematangsiantar
                     </p>
                 </li>                
             </ul>

@@ -15,8 +15,8 @@
                 <a href="{{ route('tamu.galeri.show') }}" class="text-white hover:text-gray-300 px-2">Galeri</a>
                 <a href="{{ route('tamu.koleksi.show') }}" class="text-white hover:text-gray-300 px-2">Koleksi</a>
                 <a href="{{ route('tamu.pameran.show') }}" class="text-white hover:text-gray-300 px-2">Pameran</a>
-                <a href="#" class="text-white hover:text-gray-300 px-2">Buku Tamu</a>
-                <a href="#" class="py-1.5 px-6 bg-red-700 rounded-md text-white hover:bg-red-800">Tiket</a>
+                <a href="{{ route('tamu.bukutamu.create') }}" class="text-white hover:text-gray-300 px-2">Buku Tamu</a>
+                <a href="{{ route('tamu.informasitiket.show') }}" class="py-1.5 px-6 bg-red-700 rounded-md text-white hover:bg-red-800">Tiket</a>
                 
                 <!-- Tombol Logout di Desktop -->
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="py-1.5 px-6 bg-gray-700 rounded-md text-white hover:bg-gray-800 flex items-center">
@@ -43,8 +43,8 @@
                 <li><a href="{{ route('tamu.galeri.show') }}" class="block py-2 pr-4 pl-3 text-white hover:bg-gray-700 rounded">Galeri</a></li>
                 <li><a href="{{ route('tamu.koleksi.show') }}" class="block py-2 pr-4 pl-3 text-white hover:bg-gray-700 rounded">Koleksi</a></li>
                 <li><a href="{{ route('tamu.pameran.show') }}" class="block py-2 pr-4 pl-3 text-white hover:bg-gray-700 rounded">Pameran</a></li>
-                <li><a href="#" class="block py-2 pr-4 pl-3 text-white hover:bg-gray-700 rounded">Buku Tamu</a></li>
-                <li><a href="#" class="block py-2 pr-4 pl-3 text-white bg-red-700 hover:bg-red-800 rounded">Tiket</a></li>
+                <li><a href="{{ route('tamu.bukutamu.create') }}" class="block py-2 pr-4 pl-3 text-white hover:bg-gray-700 rounded">Buku Tamu</a></li>
+                <li><a href="{{ route('tamu.informasitiket.show') }}" class="block py-2 pr-4 pl-3 text-white bg-red-700 hover:bg-red-800 rounded">Tiket</a></li>
 
                 <!-- Tombol Logout di Mobile -->
                 <li>

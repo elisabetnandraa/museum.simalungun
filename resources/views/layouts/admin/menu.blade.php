@@ -86,13 +86,13 @@
             </a>
             <ul class="nav nav-treeview" style="background-color: white; padding: 10px; border-radius: 5px;">
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-dark">
+                    <a href="{{route('admin.informasitiket.index')}}" class="nav-link text-dark {{(Request::routeIs('admin.informasitiket.index') ? 'active':'')}}">
                         <i class="fas fa-info nav-icon"></i>
                         <p>Informasi Tiket</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-dark">
+                    <a href="{{route('admin.pesantiket.index')}}" class="nav-link text-dark {{(Request::routeIs('admin.pesantiket.index') ? 'active':'')}}">
                         <i class="nav-icon fas fa-ticket-alt"></i> 
                         <p>Tiket</p>
                     </a>

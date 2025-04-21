@@ -12,7 +12,11 @@ use App\Http\Controllers\Admin\KoleksiController;
 use App\Http\Controllers\Admin\PameranController;
 use App\Http\Controllers\Admin\BukuTamuController;
 use App\Http\Controllers\Admin\UlasanController;
+use App\Http\Controllers\Admin\InformasiTiketController;
+use App\Http\Controllers\Admin\PesanTiketController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\Auth\ForgotPasswordController; 
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +35,20 @@ Route::get('/', function () {
 
 // Authentication Routes
 Auth::routes();
+
+
+
+// CMS reset password user biasa
+Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotForm'])->name('tamu.forgot-password');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'submitForgotRequest'])->name('tamu.forgot-password.submit');
+
+// CMS reset password admin
+Route::get('/admin/forgot-password', [ForgotPasswordController::class, 'showForgotForm'])->name('admin.forgot-password');
+Route::post('/admin/forgot-password', [ForgotPasswordController::class, 'submitForgotRequest'])->name('admin.forgot-password.submit');
+
+// CMS halaman reset password
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
 
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['admin'])->group(function () {
@@ -78,6 +96,12 @@ Route::middleware(['auth'])->group(function () {
         Route::put('admin/pameran/{pameran}', [PameranController::class, 'update'])->name('admin.pameran.update');
         Route::delete('admin/pameran/{pameran}', [PameranController::class, 'destroy'])->name('admin.pameran.destroy');
 
+        // CMS untuk Informasi Tiket
+        Route::get('admin/informasitiket', [InformasiTiketController::class, 'index'])->name('admin.informasitiket.index');
+        Route::post('admin/informasitiket', [InformasiTiketController::class, 'store'])->name('admin.informasitiket.store');
+        Route::put('admin/informasitiket/{informasiTiket}', [InformasiTiketController::class, 'update'])->name('admin.informasitiket.update');
+        Route::delete('admin/informasitiket/{informasiTiket}', [InformasiTiketController::class, 'destroy'])->name('admin.informasitiket.destroy');
+
         // CMS untuk Buku Tamu
         Route::get('admin/bukutamu', [BukuTamuController::class, 'index'])->name('admin.bukutamu.index');
         Route::delete('admin/bukutamu/{bukuTamu}', [BukuTamuController::class, 'destroy'])->name('admin.bukutamu.destroy');
@@ -85,6 +109,11 @@ Route::middleware(['auth'])->group(function () {
         // CMS untuk Ulasan
         Route::get('admin/ulasan', [UlasanController::class, 'index'])->name('admin.ulasan.index');
         Route::delete('admin/ulasan/{ulasan}', [UlasanController::class, 'destroy'])->name('admin.ulasan.destroy');
+
+        // CMS untuk Pesan Tiket
+        Route::get('/admin/pesantiket', [PesanTiketController::class, 'index'])->name('admin.pesantiket.index');
+        Route::post('/pesantiket', [PesanTiketController::class, 'store'])->name('admin.pesantiket.store');
+        Route::put('/pesantiket/{id}', [PesanTiketController::class, 'update'])->name('admin.pesantiket.update');
     });
 
     // Dashboard untuk Tamu
@@ -101,5 +130,27 @@ Route::middleware(['auth'])->group(function () {
         // CMS UNTUK LIHAT PAMERAN
         Route::get('/tamu/pameran', [PameranController::class, 'show'])->name('tamu.pameran.show');
 
+        // CMS UNTUK BUKU TAMU
+        Route::get('/buku-tamu', [BukuTamuController::class, 'create'])->name('tamu.bukutamu.create');
+        Route::post('/buku-tamu', [BukuTamuController::class, 'store'])->name('buku-tamu.store');
+
+        // CMS UNTUK ULASAN
+        Route::post('/ulasan', [UlasanController::class, 'store'])->name('tamu.ulasan.store');
+
+        // CMS UNTUK INFORMASI TIKET
+        Route::get('/informasi-tiket', [InformasiTiketController::class, 'showForGuest'])->name('tamu.informasitiket.show');
+
+        // CMS UNTUK PESAN TIKET
+        Route::get('/tamu/pesantiket', [PesanTiketController::class, 'create'])->name('tamu.pesantiket.create');
+        Route::post('/tamu/pesantiket', [PesanTiketController::class, 'store'])->name('tamu.pesantiket.store');
+        Route::post('/tamu/pesantiket/konfirmasi', [PesanTiketController::class, 'store'])->name('tamu.pesantiket.konfirmasi');
+        Route::post('/preview-pembayaran', [PesanTiketController::class, 'previewPayment'])->name('tamu.pesantiket.preview');
+        Route::post('/proses-pembayaran', [PesanTiketController::class, 'processPayment'])->name('tamu.pesantiket.processPayment');
+        
+    
+
+
     });
+
+
 });

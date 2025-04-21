@@ -15,32 +15,26 @@ class UlasanSeeder extends Seeder
     {
         $data = [
             [  
-                'nama' => 'Budi',
-                'ulasan' => 'lorem ipsum dolor sit amet consectetur adipiscing elit', 
+                'nama' => 'Vebie Yoseva Theresia',
+                'ulasan' => 'Pertama kali kesini, museum ini menceritakan tentang adanya Simalungun. Di dalamnya ada benda-benda bersejarah. Biaya masuk 5k.', 
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nama' => 'Siti',
-                'ulasan' => 'lorem ipsum dolor sit amet consectetur adipiscing elit', 
+                'nama' => 'Putri Manurung',
+                'ulasan' => 'Kita benar - benar bisa belajar tentang kebudayaan Simlaungun disini. Isinya benar - bener asli, dan diolah langsung oleh Yayasan Museum Simalungun.', 
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nama' => 'Andi',
-                'ulasan' => 'lorem ipsum dolor sit amet consectetur adipiscing elit', 
+                'nama' => 'Antonius Munthe',
+                'ulasan' => 'Semoga semua generasi muda Indonesia berkenan ikut melestarikan budaya Indonesia dengan mengunjungi Museum Simalungun ini dan ikut merawatnya.', 
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nama' => 'Tina',
-                'ulasan' => 'lorem ipsum dolor sit amet consectetur adipiscing elit', 
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nama' => 'Rudi',
-                'ulasan' => 'lorem ipsum dolor sit amet consectetur adipiscing elit', 
+                'nama' => 'Elisabeth',
+                'ulasan' => 'semoga museum ini bisa terus berkembang.', 
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

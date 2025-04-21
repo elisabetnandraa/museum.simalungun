@@ -14,6 +14,8 @@ use Database\Seeders\KoleksiSeeder;
 use Database\Seeders\PameranSeeder;
 use Database\Seeders\BukuTamuSeeder;
 use Database\Seeders\UlasanSeeder;
+use Database\Seeders\InformasiTiketSeeder;
+use Database\Seeders\PesanTiketSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -32,5 +34,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PameranSeeder::class);
         $this->call(BukuTamuSeeder::class);
         $this->call(UlasanSeeder::class);
+        $this->call(InformasiTiketSeeder::class);
+        $this->call(PesanTiketSeeder::class);
     }
 }
