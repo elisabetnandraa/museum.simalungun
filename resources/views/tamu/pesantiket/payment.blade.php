@@ -1,8 +1,13 @@
-@extends('layouts.app')
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+@include('assets.style')
+@vite(['resources/css/app.css','resources/js/app.js'])
+<title>Museum Simalungun - Bayar</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+</head>
+<body class="font-poppins bg-gray-50">
+@include('layouts.user.navbar') 
 
-@section('title', 'Bayar Sekarang')
-
-@section('content')
 <div class="container mx-auto py-12 px-4 text-center flex flex-col items-center justify-center">
     <img src="{{ asset('assets/img/logomuseum.png') }}" alt="Logo" class="w-28 md:w-36 mb-6">
     <h2 class="text-3xl font-bold mb-3 text-gray-800">Silakan Selesaikan Pembayaran</h2>
@@ -33,4 +38,10 @@
         });
     });
 </script>
-@endsection
+@include('layouts.user.footer')
+@include('assets.js')
+
+
+</body>
+</html>
+

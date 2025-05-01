@@ -1,6 +1,16 @@
-@extends('layouts.app')
-@section('title', 'Pesan Tiket')
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @include('assets.style')
+    @vite(['resources/css/app.css','resources/js/app.js'])
+    <title>Museum Simalungun - Pesan Tiket</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+</head>
+<body class="font-poppins bg-gray-50">
+@include('layouts.user.navbar')
+
 <div class="container mx-auto px-4 py-8">
     @if ($errors->any())
         <div class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
@@ -83,11 +93,7 @@
         <div>
             <div class="mb-6">
                 <img src="{{ asset('assets/img/museum.jpg') }}" alt="Museum Simalungun" class="w-full rounded">
-                <div class="absolute top-1/4 right-0 pr-8">
-                    <h2 class="text-white text-3xl font-bold text-right">WELCOME TO</h2>
-                    <h2 class="text-white text-3xl font-bold text-right">MUSEUM</h2>
-                    <h2 class="text-white text-3xl font-bold text-right">SIMALUNGUN</h2>
-                </div>
+                
             </div>
             
             <div class="bg-white shadow-md rounded p-6">
@@ -110,9 +116,7 @@
         </ol>
     </div>
 </div>
-@endsection
 
-@section('script')
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const jumlahInput = document.getElementById('jumlah');
@@ -151,4 +155,8 @@
         const dateInput = document.getElementById('tanggal_pemesanan');
     });
 </script>
-@endsection
+
+@include('layouts.user.footer')
+@include('assets.js')
+</body>
+</html>

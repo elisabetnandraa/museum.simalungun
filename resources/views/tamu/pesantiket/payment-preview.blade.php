@@ -1,8 +1,16 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @include('assets.style')
+    @vite(['resources/css/app.css','resources/js/app.js'])
+    <title>Museum Simalungun - Payment</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+</head>
+<body class="font-poppins bg-gray-50">
+@include('layouts.user.navbar')
 
-@section('title', 'Preview Pembayaran')
-
-@section('content')
 <div class="min-h-[calc(100vh-theme(space.24))] bg-cover bg-center flex items-center justify-center px-4 py-12" style="background-image: url('/assets/img/bgmuseum.png')">
 
     <div class="bg-white/80 backdrop-blur-md shadow-lg rounded-lg px-10 pt-8 pb-10 w-full max-w-3xl">
@@ -25,4 +33,9 @@
         </form>
     </div>
 </div>
-@endsection
+@include('layouts.user.footer')
+@include('assets.js')
+
+
+</body>
+</html>

@@ -117,63 +117,67 @@ public function previewPayment(Request $request)
         return redirect()->route('admin.pesantiket.index')->with('success', 'Pesanan berhasil diperbarui.');
     }
 
+   
+
     public function midtransCallback(Request $request)
-    {
-        \Log::info('Midtrans Callback:', $request->all());
-    
-        $serverKey = trim(config('midtrans.server_key'));
-        $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
-    
-        if ($hashed !== $request->signature_key) {
-            \Log::error("Invalid signature for order: " . $request->order_id);
-            return response()->json(['message' => 'Invalid signature'], 403);
-        }
-    
-        $pesanan = PesanTiket::where('nomor_tiket', $request->order_id)->first();
-    
-        if (!$pesanan) {
-            \Log::error("Pesanan tidak ditemukan untuk order_id: " . $request->order_id);
-            return response()->json(['message' => 'Order not found'], 404);
-        }
-        \Log::error($pesanan);
-        switch ($request->transaction_status) {
-            case 'settlement':
-                $pesanan->status = 'selesai';
-                $pesanan->save();
-    
-                try {
-                    Mail::to($pesanan->email)->send(new TiketTerkirim($pesanan));
-                    \Log::info("Email tiket berhasil dikirim ke: " . $pesanan->email);
-                } catch (\Exception $e) {
-                    \Log::error("Gagal mengirim email tiket: " . $e->getMessage());
-                }
-                break;
-    
-            case 'capture':
-                $pesanan->status = 'selesai';
-                $pesanan->save();
-                break;
-    
-            case 'cancel':
-            case 'deny':
-                $pesanan->status = 'gagal';
-                $pesanan->save();
-                break;
-    
-            case 'pending':
-                $pesanan->status = 'pending';
-                $pesanan->save();
-                break;
-    
-            default:
-                $pesanan->status = 'gagal';
-                $pesanan->save();
-                break;
-        }
-    
-        \Log::info("Pesanan berhasil diperbarui: " . $request->order_id);
-    
-        return response()->json(['message' => 'Transaction updated successfully']);
+{
+    \Log::info('Midtrans Callback:', $request->all());
+
+    $serverKey = trim(config('midtrans.server_key'));
+    $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
+
+    if ($hashed !== $request->signature_key) {
+        \Log::error("Invalid signature for order: " . $request->order_id);
+        return response()->json(['message' => 'Invalid signature'], 403);
     }
+
+    $pesanan = PesanTiket::where('nomor_tiket', $request->order_id)->first();
+
+    if (!$pesanan) {
+        \Log::error("Pesanan tidak ditemukan untuk order_id: " . $request->order_id);
+        return response()->json(['message' => 'Order not found'], 404);
+    }
+    
+    // Hapus log error yang tidak perlu
+    // \Log::error($pesanan);
+    
+    switch ($request->transaction_status) {
+        case 'settlement':
+        case 'capture': // Tambahkan pengiriman email untuk status capture juga
+            $pesanan->status = 'selesai';
+            $pesanan->save();
+
+            try {
+                // Tambahkan logging sebelum mencoba mengirim email
+                \Log::info("Mencoba mengirim email tiket ke: " . $pesanan->email);
+                Mail::to($pesanan->email)->send(new TiketTerkirim($pesanan));
+                \Log::info("Email tiket berhasil dikirim ke: " . $pesanan->email);
+            } catch (\Exception $e) {
+                \Log::error("Gagal mengirim email tiket: " . $e->getMessage());
+                \Log::error("Stack trace: " . $e->getTraceAsString());
+            }
+            break;
+
+        case 'cancel':
+        case 'deny':
+            $pesanan->status = 'gagal';
+            $pesanan->save();
+            break;
+
+        case 'pending':
+            $pesanan->status = 'pending';
+            $pesanan->save();
+            break;
+
+        default:
+            $pesanan->status = 'gagal';
+            $pesanan->save();
+            break;
+    }
+
+    \Log::info("Pesanan berhasil diperbarui: " . $request->order_id);
+
+    return response()->json(['message' => 'Transaction updated successfully']);
+}
     
 }
