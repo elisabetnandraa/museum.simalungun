@@ -143,12 +143,12 @@ public function previewPayment(Request $request)
     
     switch ($request->transaction_status) {
         case 'settlement':
-        case 'capture': // Tambahkan pengiriman email untuk status capture juga
+        case 'capture': 
+        case 'pending':
             $pesanan->status = 'selesai';
             $pesanan->save();
 
             try {
-                // Tambahkan logging sebelum mencoba mengirim email
                 \Log::info("Mencoba mengirim email tiket ke: " . $pesanan->email);
                 Mail::to($pesanan->email)->send(new TiketTerkirim($pesanan));
                 \Log::info("Email tiket berhasil dikirim ke: " . $pesanan->email);
@@ -164,10 +164,10 @@ public function previewPayment(Request $request)
             $pesanan->save();
             break;
 
-        case 'pending':
-            $pesanan->status = 'pending';
-            $pesanan->save();
-            break;
+        // case 'pending':
+        //     $pesanan->status = 'pending';
+        //     $pesanan->save();
+        //     break;
 
         default:
             $pesanan->status = 'gagal';
