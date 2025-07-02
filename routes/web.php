@@ -29,9 +29,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LandingPageController::class, 'index'])->name('welcome');
 
 // Authentication Routes
 Auth::routes();
@@ -45,6 +43,20 @@ Route::post('/forgot-password', [ForgotPasswordController::class, 'submitForgotR
 // CMS reset password admin
 Route::get('/admin/forgot-password', [ForgotPasswordController::class, 'showForgotForm'])->name('admin.forgot-password');
 Route::post('/admin/forgot-password', [ForgotPasswordController::class, 'submitForgotRequest'])->name('admin.forgot-password.submit');
+
+
+        // CMS UNTUK LIHAT GALERI
+        Route::get('/tamu/galeri', [GaleriController::class, 'show'])->name('tamu.galeri.show');
+
+        // CMS UNTUK LIHAT KOLEKSI
+        Route::get('/tamu/koleksi', [KoleksiController::class, 'show'])->name('tamu.koleksi.show');
+        Route::get('/koleksi/{id}', [KoleksiController::class, 'detail'])->name('detailkoleksi');
+
+        // CMS UNTUK LIHAT PAMERAN
+        Route::get('/tamu/pameran', [PameranController::class, 'show'])->name('tamu.pameran.show');
+
+        
+        Route::get('/tamu', [LandingPageController::class, 'index'])->name('tamu.dashboard');
 
 // CMS halaman reset password
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
@@ -118,17 +130,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Dashboard untuk Tamu
     Route::middleware(['tamu'])->group(function () {
-        Route::get('/tamu', [LandingPageController::class, 'index'])->name('tamu.dashboard');
 
-        // CMS UNTUK LIHAT GALERI
-        Route::get('/tamu/galeri', [GaleriController::class, 'show'])->name('tamu.galeri.show');
-
-        // CMS UNTUK LIHAT KOLEKSI
-        Route::get('/tamu/koleksi', [KoleksiController::class, 'show'])->name('tamu.koleksi.show');
-        Route::get('/koleksi/{id}', [KoleksiController::class, 'detail'])->name('detailkoleksi');
-
-        // CMS UNTUK LIHAT PAMERAN
-        Route::get('/tamu/pameran', [PameranController::class, 'show'])->name('tamu.pameran.show');
 
         // CMS UNTUK BUKU TAMU
         Route::get('/buku-tamu', [BukuTamuController::class, 'create'])->name('tamu.bukutamu.create');

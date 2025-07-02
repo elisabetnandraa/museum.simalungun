@@ -17,6 +17,6 @@ class LandingPageController extends Controller
         $jadwals = Jadwal::all();
         $subprofils = SubProfil::all();
 
-        return view('tamu.dashboard', compact('beritas', 'profils', 'jadwals', 'subprofils'));
+        return view('welcome', compact('beritas', 'profils', 'jadwals', 'subprofils'));
     }
 }
