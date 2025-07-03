@@ -41,7 +41,7 @@
                     
                     <div class="mb-4">
                         <label for="tanggal_kunjungan" class="block mb-1">Tanggal Kunjungan</label>
-                        <input type="date" name="tanggal_kunjungan" id="tanggal_kunjungan" class="w-full rounded-md border-gray-300 bg-white text-gray-800 p-2.5" required>
+                        <input type="date" min="<?php echo date('Y-m-d'); ?>" name="tanggal_kunjungan" id="tanggal_kunjungan" class="w-full rounded-md border-gray-300 bg-white text-gray-800 p-2.5" required>
                     </div>
                     
                     <div class="mb-4">

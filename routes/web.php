@@ -54,7 +54,7 @@ Route::post('/admin/forgot-password', [ForgotPasswordController::class, 'submitF
 
         // CMS UNTUK LIHAT PAMERAN
         Route::get('/tamu/pameran', [PameranController::class, 'show'])->name('tamu.pameran.show');
-
+ 
         
         Route::get('/tamu', [LandingPageController::class, 'index'])->name('tamu.dashboard');
 

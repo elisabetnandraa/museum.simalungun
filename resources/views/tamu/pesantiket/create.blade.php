@@ -32,7 +32,7 @@
                 <div class="mb-4">
                     <label for="tanggal_pemesanan" class="block text-sm font-bold mb-2">Pilih Tanggal</label>
                     <div class="relative">
-                        <input type="date" placeholder="Pilih tanggal" id="tanggal_pemesanan" name="tanggal_pemesanan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                        <input type="date" min="<?php echo date('Y-m-d'); ?>" placeholder="Pilih tanggal" id="tanggal_pemesanan" name="tanggal_pemesanan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                         <span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                             <svg class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
